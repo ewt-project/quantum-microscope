@@ -41,11 +41,11 @@ Each simulation has its own panel with various UI options to control the simulat
 
 | Simulation Type | README |
 | ------ | ------ |
-| Spacetime (e.g. neutrino) | [/phase1/ReadMe.md](/phase1/ReadMe.md)  |
-| Particles (e.g. electron) | [/phase2/ReadMe.md](/phase2/ReadMe.md)  |
-| Nucleons (e.g. protons) | [/phase3/ReadMe.md](/phase3/ReadMe.md)   |
-| Atoms (e.g. hydrogen) | [/phase4/ReadMe.md](/phase4/ReadMe.md)   |
-| Molecules (e.g. molecular hydrogen) | [/phase5/ReadMe.md](/phase5/ReadMe.md)   |
+| Spacetime (e.g. neutrino) | [/phase1/README.md](/phase1/README.md)  |
+| Particles (e.g. electron) | [/phase2/README.md](/phase2/README.md)  |
+| Nucleons (e.g. protons) | [/phase3/README.md](/phase3/README.md)   |
+| Atoms (e.g. hydrogen) | [/phase4/README.md](/phase4/README.md)   |
+| Molecules (e.g. molecular hydrogen) | [/phase5/README.md](/phase5/README.md)   |
 
 
 ### Changing Additional Configuration Variables
