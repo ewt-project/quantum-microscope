@@ -1,5 +1,15 @@
+# macOS files
+.DS_Store
+
+
+# Blender files unless it is the main Simulator.blend file
+*.blend
+*.blend1
+!Simulator.blend
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 
