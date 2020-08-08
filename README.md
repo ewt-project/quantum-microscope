@@ -18,7 +18,7 @@ These instructions enable the add-on to be run on a local machine and provide ac
 2. Open the Blender app (ensure that it is v2.8 or later)
 3. In Blender, under the **Edit** menu select **Preferences**
 4. Select **Add-Ons**
-5. Select **Install** and navigate to the EWT_Qscope.zip file downloaded in step 1.
+5. Select **Install** and navigate to the quantum-microscope.zip file downloaded in step 1.
 6. Select the **checkbox** next to "Quantum Microscope" to enable the add-on
 
 
@@ -63,10 +63,50 @@ The simulator has additional configuration options not exposed in the UI. These 
 
 Simulating with 100% *real* physics requires changes to the scripts or Blender's physics engine. Developers may wish to contribute and enhance the simulation.  Each simulation type has its own ReadMe file (see table above), detailing what needs to be improved or corrected. There are also TODOs marked in the Python scripts. Refer to the [EWT Project](https://www.energywavetheory.com/project) for general information about the project and the initial requirements for the simulator.
 
-The project code may be downloaded from GitHub at:
+The project source code may be downloaded from GitHub at:
 ```
 git clone https://github.com/ewt-project/quantum-microscope
 ```
+
+The root directory of the project contains the \__init__.py file for the Blender UI.  A folder for each phase of the project contains the code for that phase (e.g. quantum-microscope/phase1/spacetime.py for Spacetime).  A common folder contains shared code and data across phases (quantum-microscope/common).
+
+
+### Development Mode
+
+To develop and contribute to the add-on, first clone the project using the steps above.  In the directory where the project was downloaded:
+
+1) Open Blender and save a new file to the project home directory (e.g. quantum-microscope/Simulator.blend). In development mode, the Blender file must be in this directory (not required for the add-on).
+2) In Blender, go to the Scripting workspace (in the top menu).
+3) In the Scripting workspace, choose Open and find \_\_init\_\_.py  in the project home directory (e.g. quantum-microscope/\_\_init\_\_.py), find the line with the **add_on_mode** variable and then make the following change:  
+
+```
+add_on_mode = False
+```
+
+4) In the Scripting workspace, choose Run Script.  
+5) Follow the previous steps in **Running the Simulation** to run the add-on.
+
+With the exception of changes to \_\_init\_\_.py, all changes to code in your local repository should be automatically reflected in the Blender simulation when your code is saved.  The exception is \_\_init\_\_.py.  Any changes to this file requires Run Script to be executed to test changes.  
+
+
+### Add-On Mode
+
+When development is complete, the packaging for the add-on may be tested with the following steps:
+
+1) In the \_\_init\_\_.py in the project home directory (e.g. quantum-microscope/\_\_init\_\_.py), make the following change:  
+
+```
+add_on_mode = True
+```
+
+2) Create a .zip file of the entire project home directory (e.g. quantum-microscope.zip)
+
+3) Follow the previous steps in this ReadMe for **Installing the Blender Add-On**, beginning with Step 3.
+
+### Committing Changes
+
+To commit any changes to the project, refer to the instructions page at: http://www.energywavetheory.com/project/competition-instructions
+
 
 ## Authors
 
