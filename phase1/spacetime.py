@@ -72,13 +72,13 @@ def main(wave_centers, anti_wave_centers):
     if config.dimensions == 3:
         range = [ (-1, -1, -1), (-1, -1, 1), (-1, 1, -1), (-1, 1, 1), (1, -1, -1), (1, -1, 1), (1, 1, -1), (1, 1, 1) ] # Starting points and resizing for granule array, wave center emitter and container.
         number_cuts = 2    # Controls the subdivision of array cube for wave.  A larger number is better for wave production, but for performance reasons, it is managed by dimensions.
-        granule_count = (2 * granule_array_count) ** 3 / 8      # Reduce granules and cuts by dimnesion for performance reasons.
+        granule_count = int((2 * granule_array_count) ** 3 / 8)      # Reduce granules and cuts by dimension for performance reasons.
         config.flow = 1     # Flow is different by dimension due to the way granule density is managed for performance.
         transform_value = (array_size, array_size, array_size)    # Resizing cube properties based on dimensions.
     elif config.dimensions == 2:
         range = [ (-1, -1, 0), (-1, 1, 0), (1, -1, 0), (1, 1, 0) ]
         number_cuts = 3
-        granule_count = (8 * granule_array_count) ** 2 / 2
+        granule_count = int((8 * granule_array_count) ** 2 / 2)
         config.flow = 10
         transform_value = (array_size, array_size, granule_wavelength)
     else:
