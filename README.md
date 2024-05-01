@@ -1,4 +1,4 @@
-# Quantum Microcope
+# Quantum Microscope
 
 Quantum Microscope is an open source add-on to Blender, simulating subatomic particles and the formation of matter using classical physics. It provides a microscopic look at molecules, atoms, atomic nuclei, particles and spacetime, using the theoretical model from Energy Wave Theory (EWT).
 
