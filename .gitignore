@@ -5,7 +5,7 @@
 # Blender files unless it is the main Simulator.blend file
 *.blend
 *.blend1
-!Simulator.blend
+# !Simulator.blend  # These can become large binary files, toggle commented line if you want to use it during development, revert before pull request
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -137,4 +137,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-Simulator.blend
