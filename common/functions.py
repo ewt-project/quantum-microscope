@@ -210,7 +210,7 @@ def add_electron(name, color, scale_factor=1, core_only=False, antimatter=False)
         x += 1
         bpy.ops.object.select_pattern(pattern=name + "*")
         bpy.ops.object.join()
-        bpy.context.active_object.name = name  # Makes sure name of object result of join is correct
+        bpy.context.active_object.name = name  # Make sure name of resulting object is correct
         bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
         o = bpy.data.objects[name]
         if antimatter:
