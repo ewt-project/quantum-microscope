@@ -301,7 +301,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
         else:
             display_radius = (config.electron_core_radius * 4) * 2
 
-       # Location and size of the particle accelerator
+        # Location and size of the particle accelerator
         x_location = -(config.electron_core_radius * 4) * 40
         x_depth = 500
 
@@ -372,7 +372,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
 
         # Hide everything except for the particle emitter and particle
         for o in bpy.data.objects:
-            if  (o.name.find ('Emitter') == -1) and o.name.find ('Electron') == -1 and o.name.find ('Positron') == -1:
+            if (o.name.find ('Emitter') == -1) and o.name.find ('Electron') == -1 and o.name.find ('Positron') == -1:
                 o.hide_viewport = True
                 o.keyframe_insert(data_path='hide_viewport', frame=0)
 

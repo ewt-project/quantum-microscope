@@ -48,6 +48,6 @@ def clear_simulation():
     for m in bpy.data.materials:             
         bpy.data.materials.remove(m)
 
-     # Delete all particle systems
+    # Delete all particle systems
     for p in bpy.data.particles:
         bpy.data.particles.remove(p)

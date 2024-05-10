@@ -221,9 +221,9 @@ bpy.types.Scene.ext_force_enum = bpy.props.EnumProperty(
     description="Applies exponentially increasing levels of force on particles",
     default = 'OP1',
     items=[ ('OP1', "Normal", ""),
-                ('OP2', "Nuclear", ""),
-                ('OP3', "Collider", ""),
-                ('OP4', "Supernova", "") ],
+            ('OP2', "Nuclear", ""),
+            ('OP3', "Collider", ""),
+            ('OP4', "Supernova", "") ],
     update = ext_force_enum_changed)
 
 bpy.types.Scene.dimensions_enum = bpy.props.EnumProperty(
@@ -231,15 +231,15 @@ bpy.types.Scene.dimensions_enum = bpy.props.EnumProperty(
     description="The number of dimensions for the spacetime array",
     default = '2',
     items=[ ('1', "1D", ""),
-                ('2', "2D", ""),
-                ('3', "3D", "") ])
+            ('2', "2D", ""),
+            ('3', "3D", "") ])
 
 bpy.types.Scene.view_enum = bpy.props.EnumProperty(
     name = "View",
     description="The view type displaying individual granules or collective waves",
     default = 'G',
     items=[ ('G', "Granule", ""),
-                ('W', "Wave", "") ],
+            ('W', "Wave", "") ],
     update = view_enum_changed)
 
 
@@ -648,7 +648,7 @@ def main(operator, context, phase):
     bpy.ops.view3d.view_all(center=True)
     bpy.ops.object.select_all(action='DESELECT')
     bpy.context.scene.frame_set(1)
-    bpy.ops.ptcache.free_bake_all()  #Blender has an issue with cache that affects particle systems. Workaround is to delete all bakes and then toggle gravity to clear the cache correctly.
+    bpy.ops.ptcache.free_bake_all()  # Blender has an issue with cache that affects particle systems. Workaround is to delete all bakes and then toggle gravity to clear the cache correctly.
     bpy.context.scene.use_gravity = True
     bpy.context.scene.use_gravity = False
 

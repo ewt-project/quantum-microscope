@@ -70,7 +70,7 @@ def main(wave_centers, anti_wave_centers):
 
     # Properties that change based on dimension.
     if config.dimensions == 3:
-        range = [ (-1, -1, -1), (-1, -1, 1), (-1, 1, -1), (-1, 1, 1), (1, -1, -1), (1, -1, 1), (1, 1, -1), (1, 1, 1) ] # Starting points and resizing for granule array, wave center emitter and container.
+        range = [ (-1, -1, -1), (-1, -1, 1), (-1, 1, -1), (-1, 1, 1), (1, -1, -1), (1, -1, 1), (1, 1, -1), (1, 1, 1) ]  # Starting points and resizing for granule array, wave center emitter and container.
         number_cuts = 2    # Controls the subdivision of array cube for wave.  A larger number is better for wave production, but for performance reasons, it is managed by dimensions.
         granule_count = int((2 * granule_array_count) ** 3 / 8)      # Reduce granules and cuts by dimension for performance reasons.
         config.flow = 1     # Flow is different by dimension due to the way granule density is managed for performance.

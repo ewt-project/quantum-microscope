@@ -179,9 +179,9 @@ def main(neutrinos):
     # Create spherical, standing waves at a given wavelength distance and number of wavelengths.  This becomes the particle volume.
     while i <= config.num_waves:
         if i > 1:
-            sphere_strength = config.core_strength / (i ** 2)  #inverse square strength of wave
+            sphere_strength = config.core_strength / (i ** 2)  # inverse square strength of wave
             sphere_radius = sphere_radius + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)
-            sphere_midwave = sphere_midwave + ( ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) ) )
+            sphere_midwave = sphere_midwave + ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) )
             sphere_name = "Standing Wave Sphere " + str(i)
             harmonic_name = "Standing Wave Harmonic " + str(i)
         bpy.ops.mesh.primitive_uv_sphere_add(radius=sphere_midwave, enter_editmode=False, location=(0, 0, 0))

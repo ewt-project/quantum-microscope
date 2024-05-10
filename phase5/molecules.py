@@ -101,7 +101,7 @@ def main(hydrogen_atoms):
     molecule = "H2"
 
     # The default text that appears if show_calculations is set (text overridden in explosion scenario).  This is based on H to H2 conversion. TODO: Other atoms need to be added.
-    calc_text = "Natural Forces" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: "
+    calc_text = "Natural Forces" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms" + "\n" + "End: "
     calc_text = calc_text + str(math.floor(config.hydrogen_atoms/2)) + " H2 Molecules and " + str(config.hydrogen_atoms % 2) + " H Atoms"
 
     # Add a hydrogen atom and move it from view (it will be used by the emitter).
@@ -203,10 +203,10 @@ def main(hydrogen_atoms):
             pset = functions.add_emitter(name="Helium Emitter", color = config.helium_color, radius=10, count=helium_atoms, scale_factor=150)
             pset.mass = 500  # Making helium heavier to slow it down relative to other particles when being emitted
             functions.hide_at_keyframe(name="Helium Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
-            pset = functions.add_emitter(name="Hydrogen Emitter", color = config.hydrogen_color, radius=10, count=config.hydrogen_atoms % 4, scale_factor=100) # Remainder is H atoms.
+            pset = functions.add_emitter(name="Hydrogen Emitter", color = config.hydrogen_color, radius=10, count=config.hydrogen_atoms % 4, scale_factor=100)  # Remainder is H atoms.
             pset.mass = 200
             functions.hide_at_keyframe(name="Hydrogen Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
-            calc_text = "Nuclear Fusion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: " + str(helium_atoms) + " Helium Atoms and " + str(config.hydrogen_atoms % 4) + " Hydrogen Atoms"
+            calc_text = "Nuclear Fusion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms" + "\n" + "End: " + str(helium_atoms) + " Helium Atoms and " + str(config.hydrogen_atoms % 4) + " Hydrogen Atoms"
 
         # ACCELERATORS. With a very large force, atomic nuclei separate and protons begin to separate to quarks. With sufficient energy in the future, these quarks should be separated to electrons/positrons.
         elif config.ext_force_strength >= ext_force_strength_threshold*10 and config.ext_force_strength < ext_force_strength_threshold*100:
@@ -214,15 +214,15 @@ def main(hydrogen_atoms):
             functions.hide_at_keyframe(name="Electron Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
             pset = functions.add_emitter(name="Positron Emitter", color = config.positron_color, radius=10, count=positrons, scale_factor=40)
             o = bpy.data.objects["Positron Emitter"]
-            o.particle_systems[0].seed = random.randint(1,100)  # Make the seeding different from electrons so they follow a different path
+            o.particle_systems[0].seed = random.randint(1,100)  # Make the seeding different from electrons, so they follow a different path
             functions.hide_at_keyframe(name = "Positron Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
-            calc_text = "Accelerator Explosion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: " + str(electrons) + " Electrons and " + str(positrons) + " Positrons"
+            calc_text = "Accelerator Explosion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms" + "\n" + "End: " + str(electrons) + " Electrons and " + str(positrons) + " Positrons"
 
         # SUPERNOVA. With a very, very large force, all atoms break down to the fundamental particle (neutrinos).  99% of energy emitted from supernovas are neutrinos.
         elif config.ext_force_strength >= ext_force_strength_threshold*100:
             pset = functions.add_emitter(name="Neutrino Emitter", color = config.neutrino_color, radius = 10, scale_factor=10, count = neutrinos)
             functions.hide_at_keyframe(name="Neutrino Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
-            calc_text = "Supernova Explosion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: " + str(neutrinos) + " Neutrinos"
+            calc_text = "Supernova Explosion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms" + "\n" + "End: " + str(neutrinos) + " Neutrinos"
 
 
     #------------------------------------------------------------------------------------------------------

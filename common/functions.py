@@ -90,7 +90,7 @@ def add_external_force(name, radius, location, type='HARMONIC', strength=1, star
     bpy.ops.object.effector_add(type=type, enter_editmode=False, location=location)
     bpy.context.active_object.name = name + " Field"
     a = bpy.data.objects[name + " Field"]
-    bpy.ops.object.select_all(action='DESELECT') # deselect all objects
+    bpy.ops.object.select_all(action='DESELECT')  # deselect all objects
     a.select_set(True)
     b.select_set(True)
     bpy.context.view_layer.objects.active = b
@@ -134,7 +134,7 @@ def add_explosive_force(name, location=(0,0,0), type='FORCE', attractive_strengt
     a.field.flow = config.flow
 
 
-    # The explosive force is configured to first be attractive at the start frame and repulsive at the end frame.
+# The explosive force is configured to first be attractive at the start frame and repulsive at the end frame.
     if startframe > 1:
         a.field.strength = 0
         a.keyframe_insert(data_path='field.strength', frame=1)
@@ -301,7 +301,7 @@ def add_emitter(name, color, radius, count, scale_factor=1, self_effect=True, ob
         pset.force_field_1.flow = 1
         pset.force_field_1.use_max_distance = True
         pset.force_field_1.distance_max = 10
-        o.particle_systems[0].seed= 1
+        o.particle_systems[0].seed = 1
 
     # Add the color to the particle
     add_color(name=name, color=color)
@@ -494,7 +494,7 @@ def add_vortex(name, location=(0,0,0), strength=config.spin_strength, frequency=
     bpy.context.active_object.name = name + " Spin Force"
     a = bpy.data.objects[name + " Spin Force"]
     a.field.strength = strength
-    bpy.ops.object.select_all(action='DESELECT') # deselect all objects
+    bpy.ops.object.select_all(action='DESELECT')  # deselect all objects
     a.select_set(True)
     b.select_set(True)
     bpy.context.view_layer.objects.active = b
@@ -527,11 +527,11 @@ def add_text(name, text, location, radius=10):
 #------------------------------------------------------------------------------------------------------
 
 def hide_at_keyframe(name, init_hide=False, start_frame=1, end_frame=1):
-        ob = bpy.data.objects[name]
-        ob.hide_viewport = init_hide
-        ob.keyframe_insert(data_path="hide_viewport", frame=start_frame)
-        ob.hide_viewport = not init_hide
-        ob.keyframe_insert(data_path="hide_viewport", frame=end_frame)
+    ob = bpy.data.objects[name]
+    ob.hide_viewport = init_hide
+    ob.keyframe_insert(data_path="hide_viewport", frame=start_frame)
+    ob.hide_viewport = not init_hide
+    ob.keyframe_insert(data_path="hide_viewport", frame=end_frame)
 
 
 #------------------------------------------------------------------------------------------------------
