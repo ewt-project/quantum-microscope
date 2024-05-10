@@ -1,7 +1,7 @@
 # Phase 3 - Nucleons
 
 # COMMENTS:
-# Nucleons and composite particles, like the proton, are created from stable particles in geometric arrangments that keep particles together. See: https://energywavetheory.com/explanations/whats-in-a-proton/
+# Nucleons and composite particles, like the proton, are created from stable particles in geometric arrangements that keep particles together. See: https://energywavetheory.com/explanations/whats-in-a-proton/
 # A high external force is applied to electrons, which normally repel each other, to get the particles within close proximity of their standing wave structures.
 # Once within this standing wave radius, the electron's charge changes to a Lennard Jones force to simulate the strong force interaction holding electrons at standing wave nodes.
 # The positron continues to have a charge and is held in the proton's structure by weak forces, not the strong force.
@@ -35,7 +35,7 @@ importlib.reload(functions)
 # electrons: the count of electrons for the simulation
 # positrons: the count of positrons for the simulation
 # particle_accelerator (optional): if True, a particle accelerator is added shooting a particle towards the center
-# accelerator_force (optional): the strength of the force of the particle emmitted by the particle accelerator
+# accelerator_force (optional): the strength of the force of the particle emitted by the particle accelerator
 #------------------------------------------------------------------------------------------------------
 
 def main(electrons, positrons, particle_accelerator=False, accelerator_force=100):
@@ -52,7 +52,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase
+    # Modifications specific to this phase
     #------------------------------------------------------------------------------------------------------
 
     # Set everything to the electron since it is the stable particle for composite particles.  Electron configs.
@@ -131,7 +131,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
     # The electron and positron are hidden from view because they are used by the particle emitters.
     #------------------------------------------------------------------------------------------------------
 
-    # Add electron object (it will be used at the verices of the proton - first wavelength is the core of the electron only)
+    # Add electron object (it will be used at the vertices of the proton - first wavelength is the core of the electron only)
     functions.add_electron(name="Electron",
         color=config.electron_color,
         scale_factor = 1/(config.electron_core_radius * 4) / 2,     # Scaling factor to compensate for Blender Lennard Jones radius rule for strong force
@@ -301,7 +301,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
         else:
             display_radius = (config.electron_core_radius * 4) * 2
 
-       # Location and size of the particle accelerator
+        # Location and size of the particle accelerator
         x_location = -(config.electron_core_radius * 4) * 40
         x_depth = 500
 
@@ -372,7 +372,7 @@ def main(electrons, positrons, particle_accelerator=False, accelerator_force=100
 
         # Hide everything except for the particle emitter and particle
         for o in bpy.data.objects:
-            if  (o.name.find ('Emitter') == -1) and o.name.find ('Electron') == -1 and o.name.find ('Positron') == -1:
+            if (o.name.find ('Emitter') == -1) and o.name.find ('Electron') == -1 and o.name.find ('Positron') == -1:
                 o.hide_viewport = True
                 o.keyframe_insert(data_path='hide_viewport', frame=0)
 

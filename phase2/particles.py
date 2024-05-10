@@ -48,7 +48,7 @@ def main(neutrinos):
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase.  Must be set after user variables because of dependency.
+    # Modifications specific to this phase.  Must be set after user variables because of dependency.
     #------------------------------------------------------------------------------------------------------
 
     # WAVES - MODIFIED WITH WAVE CENTER CHANGES
@@ -171,7 +171,7 @@ def main(neutrinos):
 
     i = 1
     sphere_strength = config.core_strength
-    sphere_radius = particle_core_wavelength + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)     # Distance to wavelength. Standing wavelength decreases propotional to shell number
+    sphere_radius = particle_core_wavelength + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)     # Distance to wavelength. Standing wavelength decreases proportional to shell number
     sphere_midwave = particle_core_wavelength + ( ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) ) / 2)   # Midpoint of wavelength for forces
     sphere_name = "Standing Wave Core"
     harmonic_name = "Standing Wave Harmonic Core"
@@ -179,9 +179,9 @@ def main(neutrinos):
     # Create spherical, standing waves at a given wavelength distance and number of wavelengths.  This becomes the particle volume.
     while i <= config.num_waves:
         if i > 1:
-            sphere_strength = config.core_strength / (i ** 2)  #inverse square strength of wave
+            sphere_strength = config.core_strength / (i ** 2)  # inverse square strength of wave
             sphere_radius = sphere_radius + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)
-            sphere_midwave = sphere_midwave + ( ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) ) )
+            sphere_midwave = sphere_midwave + ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) )
             sphere_name = "Standing Wave Sphere " + str(i)
             harmonic_name = "Standing Wave Harmonic " + str(i)
         bpy.ops.mesh.primitive_uv_sphere_add(radius=sphere_midwave, enter_editmode=False, location=(0, 0, 0))

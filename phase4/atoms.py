@@ -1,7 +1,7 @@
 # Phase 4 - Atoms
 
 # COMMENTS:
-# This phase combines nucelons (protons and neutrons) merging together to form the core of an atom, then attracting electrons in orbitals.
+# This phase combines nucleons (protons and neutrons) merging together to form the core of an atom, then attracting electrons in orbitals.
 # Electrons are contained in orbitals due to attractive and repelling forces decreasing by the inverse square and cube respectively.
 # This simulation is not to scale in terms of particle size relative to distance between particles (so that atoms can be viewed).
 # An electron cloud option has been added which simulates electrons in various positions in the atom to show its probability cloud.
@@ -10,7 +10,7 @@
 # TODO: The core issue to be resolved is the structure of the nucleus.  Once resolved, many of these TODO items are automatically fixed.
 # TODO: Nucleons should arrange at standing wave nodes, similar to particles.  Thus, this development is dependent on Phase 2.
 # TODO: The repelling force uses a Blender "Wind" force to simulate the axial, magnetic force.  This needs to be improved.
-# TODO: The orbital distances for all atoms (up to calcium) can be calculated if simulataneous equation solving is possible in Blender/Python
+# TODO: The orbital distances for all atoms (up to calcium) can be calculated if simultaneous equation solving is possible in Blender/Python
 # TODO: Effector groups should be replaced with the true physics of each and every electron affecting each other - in all orbitals.
 # TODO: The electron ionization energies may be improved when electron positions are simulated and a more accurate method of wave interference is established.
 # TODO: The nucleus only supports up to calcium (Z=20) because of above, and also because the nucleus is unstable at large numbers of Z
@@ -60,7 +60,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase
+    # Modifications specific to this phase
     #------------------------------------------------------------------------------------------------------
 
     # Set everything to the electron for this phase to create protons (see phase 3)
@@ -112,7 +112,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
     #------------------------------------------------------------------------------------------------------
     # CALCULATIONS OF ORBITALS AND ELECTRON EMITTER
     # Calculations used in this section for orbital distances are a ratio of the Bohr radius, requiring
-    # solving simulataneous equations.  Mathcad was used, not Blender.  The table is here: https://energywavetheory.com/atoms/calculations-atoms/
+    # solving simultaneous equations.  Math-cad was used, not Blender.  The table is here: https://energywavetheory.com/atoms/calculations-atoms/
     # Energy calculations are shown for the ionized electron. It uses amplitude factors from https://energywavetheory.com/atoms/calculations-amplitude-factors/
     # This emitter generates free electrons that will be subject to an attractive force and repelling force of the nucleus to remain in an orbital.
     # TODO: If Blender/Python can support simultaneous equation solvers, the equations can be imported here. Instead, they use a data file.
@@ -125,7 +125,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
         # reset protons to hydrogen if not supported by simulation
         config.protons = 1
 
-    # Determine what type of atom (ionized, neutral or not a suported atom)
+    # Determine what type of atom (ionized, neutral or not a supported atom)
     if config.electrons == config.protons:           # Neutral atom
         atom_name = data.atoms[config.protons]
         orbital_ratio = data.neutral_atom
@@ -150,7 +150,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
         orbital_calc = orbital_ratio[i-1][config.protons] * config.bohr_radius      # The calculated orbital distance relative to the Bohr radius
         orbital_name = orbital_ratio[i-1][0]
         orbital_text = orbital_name + ": " + f"{orbital_calc:.2e}" + " (m)"
-        energy_constants = (1/2) * config.coulomb_constant * config.elementary_charge ** 2      # Orbital energy is based on Coulomb's law - these are constant applied to next line.
+        energy_constants = (1/2) * config.coulomb_constant * config.elementary_charge ** 2      # Orbital energy is based on Coulomb's law - these are constants applied to next line.
         if orbital_calc != 0:
             energy_calc = energy_constants * amplitude_ratio[i-1][config.protons] / orbital_calc    # Energy constants multiplied by constructive wave interference / divide radius
             if energy_calc != 0:
@@ -188,7 +188,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
             # If displaying an electron cloud, disable electrons affecting themselves and set count higher to simulate the electron's probable positions.
             if config.show_electron_cloud:
                 self_effect = False
-                electron_count = config.num_frames / 10 * (int(orbital_name[:1])**2)        # Start with a smaller number of electrons near the core and increase with each shell for visibilty
+                electron_count = config.num_frames / 10 * (int(orbital_name[:1])**2)        # Start with a smaller number of electrons near the core and increase with each shell for visibility
                 if config.protons == 1:                                                     # ...except hydrogen
                     electron_count = config.num_frames
             else:
@@ -211,7 +211,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
                 o = bpy.data.objects[orbital_name + " - Emitter"]
                 o.rotation_euler[2] = config.pi /2
 
-            # If showing an electron cloud, ensure that the electrons in the same orbitals do not effect each other
+            # If showing an electron cloud, ensure that the electrons in the same orbitals do not affect each other
             if config.show_electron_cloud:
                 pset.use_self_effect = False
             functions.link_collection(collection=orbital_collection)

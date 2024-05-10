@@ -3,7 +3,7 @@
 # COMMENTS:
 # This phase illustrates a spacetime "universe" of granules, which are displaced from equilibrium and returning, creating waves.
 # It illustrates the creation of waves and their interference, including reflections off dense "wave centers" that create the neutrino particle from standing waves.
-# Due to the difficuly in visualizing three-dimensional waves from individual components, there are various views constructed:
+# Due to the difficulty in visualizing three-dimensional waves from individual components, there are various views constructed:
 #  - Show Granules (vs Waves): This illustrates the underlying granules or their collective motion as waves (equivalent to seeing water molecules or water waves in an ocean)
 #  - Show Motion: When a single neutrino is displaced in spacetime, it can be shown in motion.  Or stable at the center of spacetime.  The latter shows its standing wave configuration.
 #  - Dimensions (1D, 2D, 3D): Although spacetime is three-dimensional, visualizations for 1D and 2D make it easier to see the formation of waves and their interactions
@@ -12,7 +12,7 @@
 # TODO: Due to the way granules form waves using Blender's wave modifier, granules cannot be controlled with physics of other objects.  This leads to major improvements needed with:
 # TODO: 1) Granules are not reflecting off objects to create standing waves.  Standing waves are formed manually and should be changed to be a reflection from a mesh object.
 # TODO: 2) Granule energy cannot be calculated.  Standing wave energy should be calculated as the sum total of granules and their motion, as displaced from equilibrium using amplitude properties.
-# TODO: 3) Granule forces cannot be caculated.  Traveling wave energy should be calculated based on granules and their motion, again using amplitude.  This can be tied to the property known as charge.
+# TODO: 3) Granule forces cannot be calculated.  Traveling wave energy should be calculated based on granules and their motion, again using amplitude.  This can be tied to the property known as charge.
 # TODO: 4) Blender's wave modifier does not use an inverse square law and sets falloff as a distance.  This needs to be changed to be accurate physics (inverse square for three-dimensional)
 # TODO: 5) Blender's wave modifier does not appear to be using exact constructive and destructive wave interference and should be modified to be more accurate.
 # For more details, visit www.energywavetheory.com
@@ -55,7 +55,7 @@ def main(wave_centers, anti_wave_centers):
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase
+    # Modifications specific to this phase
     #------------------------------------------------------------------------------------------------------
 
     # Granule properties
@@ -70,7 +70,7 @@ def main(wave_centers, anti_wave_centers):
 
     # Properties that change based on dimension.
     if config.dimensions == 3:
-        range = [ (-1, -1, -1), (-1, -1, 1), (-1, 1, -1), (-1, 1, 1), (1, -1, -1), (1, -1, 1), (1, 1, -1), (1, 1, 1) ] # Starting points and resizing for granule array, wave center emitter and container.
+        range = [ (-1, -1, -1), (-1, -1, 1), (-1, 1, -1), (-1, 1, 1), (1, -1, -1), (1, -1, 1), (1, 1, -1), (1, 1, 1) ]  # Starting points and resizing for granule array, wave center emitter and container.
         number_cuts = 2    # Controls the subdivision of array cube for wave.  A larger number is better for wave production, but for performance reasons, it is managed by dimensions.
         granule_count = int((2 * granule_array_count) ** 3 / 8)      # Reduce granules and cuts by dimension for performance reasons.
         config.flow = 1     # Flow is different by dimension due to the way granule density is managed for performance.
@@ -121,7 +121,7 @@ def main(wave_centers, anti_wave_centers):
     # Neutrino energy should be calculated by collective energy of standing wave granules.  It is calculated based on EWT equations for now.  TODO: use granule physics to calculate total energy.
     calc_energy_joules = ( (4/3) * config.pi * config.fundamental_density * (config.fundamental_amplitude ** 6) * config.fundamental_wavespeed ** 2 ) / (config.fundamental_wavelength_no_gfactor ** 3)
 
-    # Neutrino energy is first calculated in joues.  To convert to electron-volts (eV), the following conversion is used: 6.242e+18 J to eV.
+    # Neutrino energy is first calculated in joules.  To convert to electron-volts (eV), the following conversion is used: 6.242e+18 J to eV.
     calc_energy = calc_energy_joules * 6.242e+18
 
     # Determine the time it takes for the wave to reach the center, measured in number of keyframes in Blender.  TODO: This would be automatically displaced when a wave center can reflect granules to create standing waves.
@@ -154,7 +154,7 @@ def main(wave_centers, anti_wave_centers):
         else:
             m.use_normal_z = False
 
-        if config.dimensions == 1:                 # For a 1D wave, y is disbaled to show x direction.
+        if config.dimensions == 1:                 # For a 1D wave, y is disabled to show x direction.
             m.use_normal_y = False
 
         m.height = config.wave_amplitude           # Height of wave is the wave amplitude.
@@ -204,7 +204,7 @@ def main(wave_centers, anti_wave_centers):
             m.start_position_object = o     # Linking wave placement with the neutrino to be able to move the object and have wave change with it.
 
 
-    # Add granules into the mesh object as a particle system.  Returns the particle settings to be overriden outside of function.
+    # Add granules into the mesh object as a particle system.  Returns the particle settings to be overridden outside of function.
     def add_granules(name):
         o = bpy.data.objects[name]
         o.show_instancer_for_viewport = False
@@ -344,7 +344,7 @@ def main(wave_centers, anti_wave_centers):
             else:
                 pset.count = 0    # If show_granules is not selected, then wave motion is shown and no granules are used in the particle emitter
 
-            # Granules use the wave modifier and physics cannot be used.  Subtituting all granules for a collective force at the origination point. TODO: Real physics should be used for granules and this should be removed.
+            # Granules use the wave modifier and physics cannot be used.  Substituting all granules for a collective force at the origination point. TODO: Real physics should be used for granules and this should be removed.
             name = "Granule Force " + str(multiplier)
             bpy.ops.object.effector_add(type='FORCE', enter_editmode=False, location=(x, y, z))
             bpy.context.active_object.name = name

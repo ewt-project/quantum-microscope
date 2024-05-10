@@ -43,7 +43,7 @@ if 'electrons' not in locals():
 if 'positrons' not in locals():
     positrons = 1                                   # The total number of positrons
 if 'particle_accelerator' not in locals():
-    particle_accelerator = True                     # If true, an particle accelerator is added to simulation.  See config below for disabling.
+    particle_accelerator = True                     # If true, a particle accelerator is added to simulation.  See config below for disabling.
 if 'accelerator_force' not in locals():
     accelerator_force = 1000                        # Energy (force) of particle to collide with proton. See comments for expected results and forces to set.
 
@@ -81,7 +81,7 @@ pi = 3.1416
 fundamental_wavelength = 2.818e-17                  # The fundamental longitudinal wavelength * elec orbital g-factor applied (meters) from https://energywavetheory.com/equations
 fundamental_wavelength_no_gfactor = 2.854e-17       # The fundamental longitudinal wavelength without electron orbital g-factor applied (meters) from https://energywavetheory.com/equations
 fundamental_amplitude = 9.215e-19                   # The fundamental longitudinal amplitude with electron spin g-factor applied (meters) from https://energywavetheory.com/equations
-fundamental_wavespeed = 2.998e+8                    # The fundamental wave spped, which is the speed of light (meters per second) from https://energywavetheory.com/equations
+fundamental_wavespeed = 2.998e+8                    # The fundamental wave speed, which is the speed of light (meters per second) from https://energywavetheory.com/equations
 fundamental_density = 3.860e+22                     # The fundamental density (kg/m^3) from https://energywavetheory.com/equations
 fundamental_energy = 2.389                          # The fundamental energy in electron-volts (eV) from https://energywavetheory.com/subatomic-particles/calculations-particles/
 fine_structure = 7.2974e-3                          # The fine structure constant from CODATA values
@@ -95,7 +95,7 @@ coulomb_constant = 8.988e9                          # Coulomb's constant from CO
 neutrino_core_radius = 0.5                              # The neutrino core distance radius for the simulation, such that the diameter is 1.
 electron_core_radius = neutrino_core_radius * 10        # The electron core distance radius, derived at 10 wave centers.
 hydrogen_radius = 100                                   # The radius of hydrogen for the simulation
-emitter_radius = 100                                    # Default size of sphere emitting particles. The default is often overriden depending on its use for particle emission.
+emitter_radius = 100                                    # Default size of sphere emitting particles. The default is often overridden depending on its use for particle emission.
 
 # CHARGES
 neutrino_charge = 2                                     # The neutrino core charge for the simulation.
@@ -138,7 +138,7 @@ antineutrino_color = (0.8, 0.3, 0.6, 1)                 # Color of opposite phas
 electron_color = (0.0, 0.0, 0.6, 1)                     # Color of electron particle in simulation in (R, G, B, A) values
 positron_color = (0.8, 0.2, 0.3, 1)                     # Color of positron particle in simulation in (R, G, B, A) values
 proton_color = (1, 0.0, 0.0, 1)                         # Color of proton particle displayed as Particle Shell when unhidden in (R, G, B, A) values
-neutron_color = (0.0, 0.0, 0.0, 1)                      # Color of neutron particle displayed as Particle Shell when unhidden in (R, G, B, A) valuesaccelerator_color = (0.0, 0.0, 0.05, 1)                 # Color of accelerator and its particle in (R, G, B, A) values
+neutron_color = (0.0, 0.0, 0.0, 1)                      # Color of neutron particle displayed as Particle Shell when unhidden in (R, G, B, A) values accelerator_color = (0.0, 0.0, 0.05, 1)                 # Color of accelerator and its particle in (R, G, B, A) values
 hydrogen_color = (1, 1, 1, 1)                           # Color of hydrogen atom displayed as Particle Shell when unhidden in (R, G, B, A) values
 helium_color = (.83, 1, 1, 1)                           # Color of helium atom displayed as Particle Shell when unhidden in (R, G, B, A) values
 accelerator_color = (0.0, 0.0, 0.05, 1)                 # Color of accelerator and its particle in (R, G, B, A) values

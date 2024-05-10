@@ -75,7 +75,7 @@ def add_color(name, color, transparent=False):
 # Adds an external force in the simulation towards the center to push particles together with energy.
 # name: the desired name of the external force
 # radius: the desired radius of a sphere that applies the force
-# location: the centerpoint of the sphere location in (x,y,z) coordinates
+# location: the center point of the sphere location in (x,y,z) coordinates
 # type (optional): the type of force. default is harmonic.
 # strength (optional): the strength of the force.
 # startframe (optional): the point at which the force is turned on using a Blender frame number.
@@ -90,7 +90,7 @@ def add_external_force(name, radius, location, type='HARMONIC', strength=1, star
     bpy.ops.object.effector_add(type=type, enter_editmode=False, location=location)
     bpy.context.active_object.name = name + " Field"
     a = bpy.data.objects[name + " Field"]
-    bpy.ops.object.select_all(action='DESELECT') # deselect all objects
+    bpy.ops.object.select_all(action='DESELECT')  # deselect all objects
     a.select_set(True)
     b.select_set(True)
     bpy.context.view_layer.objects.active = b
@@ -117,7 +117,7 @@ def add_external_force(name, radius, location, type='HARMONIC', strength=1, star
 # Adds an explosive force that pulls particles to the center and then explodes outwards.
 # This is very similar to the external force, but uses a force in the center to attract and repel at specific times
 # name: the desired name of the explosive force
-# location (optional): the centerpoint of the sphere location in (x,y,z) coordinates. Defaults to center location.
+# location (optional): the center point of the sphere location in (x,y,z) coordinates. Defaults to center location.
 # type (optional): the type of force. default is standard force.
 # attractive_strength (optional): the strength of the attractive force - similar to the external_force_strength pushing to center.
 # repulsive_strength (optional): the strength of the repulsive force - should be adjustable so that the explosion can be seen in simulation.
@@ -134,7 +134,7 @@ def add_explosive_force(name, location=(0,0,0), type='FORCE', attractive_strengt
     a.field.flow = config.flow
 
 
-    # The explosive force is configured to first be attractive at the start frame and repulsive at the end frame.
+# The explosive force is configured to first be attractive at the start frame and repulsive at the end frame.
     if startframe > 1:
         a.field.strength = 0
         a.keyframe_insert(data_path='field.strength', frame=1)
@@ -149,7 +149,7 @@ def add_explosive_force(name, location=(0,0,0), type='FORCE', attractive_strengt
 
 
 #------------------------------------------------------------------------------------------------------
-# Adds an neutrino or antineutrinio to the simulation as a mesh object
+# Adds an neutrino or antineutrino to the simulation as a mesh object
 # name: the desired name of the particle
 # color: the desired color of the particle (it will also use transparency)
 # radius: the desired radius of the particle
@@ -225,11 +225,11 @@ def add_electron(name, color, scale_factor=1, core_only=False, antimatter=False)
 # radius: the radius of the emitter.
 # count: the number of particles emitted
 # scale_factor (optional): proton simulation settings are used by default but can be scaled by a factor
-# self_effect (optional): if true, particles will effect other particles from this emitter
+# self_effect (optional): if true, particles will affect other particles from this emitter
 # object_name (optional): the object to render if set; positron and electron auto set in this function
 # particle_type (optional): certain particles have default settings such as electron, positron, proton and neutron
 # core_only (optional): for use with electrons and positrons. if true, only show core of these particles
-# RETURNS pset - particles settings that can be adjusted and customized outside of the function
+# RETURNS pset - particles settings that can be adjusted and customized outside the function
 #------------------------------------------------------------------------------------------------------
 
 def add_emitter(name, color, radius, count, scale_factor=1, self_effect=True, object_name="", particle_type="", core_only=False):
@@ -301,7 +301,7 @@ def add_emitter(name, color, radius, count, scale_factor=1, self_effect=True, ob
         pset.force_field_1.flow = 1
         pset.force_field_1.use_max_distance = True
         pset.force_field_1.distance_max = 10
-        o.particle_systems[0].seed= 1
+        o.particle_systems[0].seed = 1
 
     # Add the color to the particle
     add_color(name=name, color=color)
@@ -494,7 +494,7 @@ def add_vortex(name, location=(0,0,0), strength=config.spin_strength, frequency=
     bpy.context.active_object.name = name + " Spin Force"
     a = bpy.data.objects[name + " Spin Force"]
     a.field.strength = strength
-    bpy.ops.object.select_all(action='DESELECT') # deselect all objects
+    bpy.ops.object.select_all(action='DESELECT')  # deselect all objects
     a.select_set(True)
     b.select_set(True)
     bpy.context.view_layer.objects.active = b
@@ -527,11 +527,11 @@ def add_text(name, text, location, radius=10):
 #------------------------------------------------------------------------------------------------------
 
 def hide_at_keyframe(name, init_hide=False, start_frame=1, end_frame=1):
-        ob = bpy.data.objects[name]
-        ob.hide_viewport = init_hide
-        ob.keyframe_insert(data_path="hide_viewport", frame=start_frame)
-        ob.hide_viewport = not init_hide
-        ob.keyframe_insert(data_path="hide_viewport", frame=end_frame)
+    ob = bpy.data.objects[name]
+    ob.hide_viewport = init_hide
+    ob.keyframe_insert(data_path="hide_viewport", frame=start_frame)
+    ob.hide_viewport = not init_hide
+    ob.keyframe_insert(data_path="hide_viewport", frame=end_frame)
 
 
 #------------------------------------------------------------------------------------------------------

@@ -14,7 +14,7 @@ import bpy
 #------------------------------------------------------------------------------------------------------
 # DETERMINE ATOM TYPE AND ARRAY
 # Select the correct table if it is an ion, and determine the ratio used for orbital distances (orbital_ratio) and amplitude factor for wave interference (amplitude_ratio)
-# TODO: This could be made more effecicient, but this data file may be replaced with a multiequation solver anyway so that tables do not need to be use_max_distance
+# TODO: This could be made more efficient, but this data file may be replaced with a multiequation solver anyway so that tables do not need to be use_max_distance
 #------------------------------------------------------------------------------------------------------
 
 def get_orbital_array(electrons, atom_name):
@@ -83,7 +83,7 @@ electron_sequence = [ 2, 2, 6, 2, 6, 2 ]
 #------------------------------------------------------------------------------------------------------
 # ORBITAL DISTANCES
 # Orbital distances relative to the Bohr radius for neutral and ion atoms.
-# Precalculated using Mathcad simultaneous equation solver.  From https://energywavetheory.com/atoms/calculations-atoms/
+# Precalculated using Math-cad simultaneous equation solver.  From https://energywavetheory.com/atoms/calculations-atoms/
 # TODO: Currently supports up to calcium. May be expanded here as a table or replaced with direct equation solver in Python
 #------------------------------------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ neutral_atom =    [ ["1s",1.000,0.571,0.397,0.285,0.226,0.185,0.157,0.137,0.121,
                     ["3p",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,1.797,1.571,1.398,1.260,1.148,1.055,0.949,0.866],
                     ["4s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,3.674,3.131] ]
 
-# Ionized atom orbital distanes (appending number is the number of electrons in the atom (e.g. ion_atom_1 is elements from H to Ca with one electron))
+# Ionized atom orbital distances (appending number is the number of electrons in the atom (e.g. ion_atom_1 is elements from H to Ca with one electron))
 ion_atom_1 =    [ [ "1s",0.000,0.500,0.333,0.250,0.200,0.167,0.143,0.125,0.111,0.100,0.091,0.083,0.077,0.071,0.067,0.063,0.059,0.056,0.053,0.050 ] ]
 
 ion_atom_2 =    [ [ "1s",0.000,0.571,0.364,0.267,0.211,0.174,0.148,0.129,0.114,0.103,0.093,0.085,0.078,0.073,0.068,0.063,0.060,0.056,0.053,0.051 ] ]
@@ -127,8 +127,8 @@ ion_atom_9 =    [ [ "1s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.121,0
                   [ "2p",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.727,0.614,0.532,0.469,0.419,0.379,0.346,0.319,0.295,0.275,0.257,0.241 ] ]
 
 ion_atom_10 =    [ [ "1s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.108,0.098,0.089,0.082,0.076,0.071,0.066,0.062,0.058,0.055,0.052 ],
-                  [ "2s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.695,0.588,0.511,0.452,0.405,0.368,0.336,0.310,0.288,0.268,0.251 ],
-                  [ "2p",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.648,0.557,0.488,0.435,0.392,0.357,0.327,0.302,0.281,0.263,0.246 ] ]
+                   [ "2s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.695,0.588,0.511,0.452,0.405,0.368,0.336,0.310,0.288,0.268,0.251 ],
+                   [ "2p",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.648,0.557,0.488,0.435,0.392,0.357,0.327,0.302,0.281,0.263,0.246 ] ]
 
 ion_atom_11 =   [ [ "1s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.098,0.089,0.082,0.076,0.071,0.066,0.062,0.058,0.055,0.052 ],
                   [ "2s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.592,0.516,0.457,0.410,0.371,0.340,0.313,0.290,0.270,0.253 ],
@@ -148,7 +148,7 @@ ion_atom_12 =   [ [ "1s",0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0
 # TODO: By knowing exact electron positions in an atom, true wave interference can be calculated instead of approximated, replacing the need for this section.
 #------------------------------------------------------------------------------------------------------
 
-# Note the 3p and 4s orbitals are calculated in EWT, but beyond 12 electrons the accuracy diminimishes and is often greather than 10%. So they have been excluded.
+# Note the 3p and 4s orbitals are calculated in EWT, but beyond 12 electrons the accuracy diminishes and is often greater than 10%. So they have been excluded.
 amp_neutral = [ [ "1s",1.000,1.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000 ],
                 [ "2s",0.000,0.000,1.306,1.477,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000 ],
                 [ "2p",0.000,0.000,0.000,0.000,0.855,0.937,1.021,0.854,0.938,1.022,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000,0.000 ],
