@@ -131,7 +131,7 @@ bpy.types.Scene.hydrogen_atoms = bpy.props.IntProperty(
 bpy.types.Scene.show_electron_cloud = bpy.props.BoolProperty(
     name ="Show Cloud",
     default = False,
-    description = "Multiple positions of the electron are simulated to illustrate the probabilty cloud")
+    description = "Multiple positions of the electron are simulated to illustrate the probability cloud")
 
 bpy.types.Scene.show_calculations = bpy.props.BoolProperty(
     name ="Show Calculations",
@@ -218,7 +218,7 @@ bpy.types.Scene.auto_play = bpy.props.BoolProperty(
 
 bpy.types.Scene.ext_force_enum = bpy.props.EnumProperty(
     name = "Condition",
-    description="Applies exponentailly increasing levels of force on particles",
+    description="Applies exponentially increasing levels of force on particles",
     default = 'OP1',
     items=[ ('OP1', "Normal", ""),
                 ('OP2', "Nuclear", ""),

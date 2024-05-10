@@ -48,21 +48,21 @@ def main(hydrogen_atoms):
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase
+    # Modifications specific to this phase
     #------------------------------------------------------------------------------------------------------
 
     config.ext_force_radius = 1000 + (100 * config.hydrogen_atoms / 10)   # Making it dynamic based on the number of hydrogen atoms.  Should be sufficiently large to get a number of molecules in view.
     config.emitter_radius = config.hydrogen_radius * 3    # Need sufficient space between atoms to combine to molecules
     config.show_forces = False     # Disable showing proton forces as the focus is molecules
     config.flow = 10               # Slow down the effect of electrons finding electron holes
-    phase_scale_factor = 1/40      # Scale down size of particles for this phase
+    phase_scale_factor = 1/40      # Scale downsize of particles for this phase
 
     # Simulates an explosion of particles depending on energy as atoms convert back to fundamental components
     explosion = False
     ext_force_strength_threshold = 100000                               # The threshold in the external force strength value before it becomes an explosion
     repulsive_force_strength = 0                                        # Unless the force is enough for an explosion, there will be no repulsive force (explosion)
     if config.ext_force_strength >= ext_force_strength_threshold:
-        config.ext_force_startframe = 25                                # The external force start frame is overriden.  Enough time to allow atoms to be seen before moving to center.
+        config.ext_force_startframe = 25                                # The external force start frame is overridden.  Enough time to allow atoms to be seen before moving to center.
         config.ext_force_endframe = config.ext_force_startframe + 25    # Atoms are held in the center for +X frames before being repelled (exploded)
         attractive_force_strength = 100000                              # Attractive strength does not use ext_force_strength for explosion because then particles can't be seen at the center.
         repulsive_force_strength = 10000                                # Force strength should be small enough to view particles being emitted from center
@@ -100,7 +100,7 @@ def main(hydrogen_atoms):
     atom = "H"
     molecule = "H2"
 
-    # The default text that appears if show_calculations is set (text overriden in explosion scenario).  This is based on H to H2 conversion. TODO: Other atoms need to be added.
+    # The default text that appears if show_calculations is set (text overridden in explosion scenario).  This is based on H to H2 conversion. TODO: Other atoms need to be added.
     calc_text = "Natural Forces" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: "
     calc_text = calc_text + str(math.floor(config.hydrogen_atoms/2)) + " H2 Molecules and " + str(config.hydrogen_atoms % 2) + " H Atoms"
 
@@ -198,7 +198,7 @@ def main(hydrogen_atoms):
             startframe=config.ext_force_startframe,
             endframe=config.ext_force_endframe)
 
-        # NUCLEAR. With a large force, the nuclei of atoms merge together to form new atomic elements.  In stars, helium is created in abudance from hydrogen. TODO: Add more atoms.
+        # NUCLEAR. With a large force, the nuclei of atoms merge together to form new atomic elements.  In stars, helium is created in abundance from hydrogen. TODO: Add more atoms.
         if config.ext_force_strength >= ext_force_strength_threshold and config.ext_force_strength < ext_force_strength_threshold*10:
             pset = functions.add_emitter(name="Helium Emitter", color = config.helium_color, radius=10, count=helium_atoms, scale_factor=150)
             pset.mass = 500  # Making helium heavier to slow it down relative to other particles when being emitted
@@ -214,7 +214,7 @@ def main(hydrogen_atoms):
             functions.hide_at_keyframe(name="Electron Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
             pset = functions.add_emitter(name="Positron Emitter", color = config.positron_color, radius=10, count=positrons, scale_factor=40)
             o = bpy.data.objects["Positron Emitter"]
-            o.particle_systems[0].seed = random.randint(1,100)  # Make the seeding different than electrons so they follow a different path
+            o.particle_systems[0].seed = random.randint(1,100)  # Make the seeding different from electrons so they follow a different path
             functions.hide_at_keyframe(name = "Positron Emitter", init_hide=True, start_frame=1, end_frame=config.ext_force_endframe)
             calc_text = "Accelerator Explosion" + "\n\n" + "Begin: " + str(config.hydrogen_atoms) + " Hydrogen Atoms"  + "\n" + "End: " + str(electrons) + " Electrons and " + str(positrons) + " Positrons"
 

@@ -48,7 +48,7 @@ def main(neutrinos):
 
     #------------------------------------------------------------------------------------------------------
     # PHASE CONFIGURATION
-    # Modifications specfic to this phase.  Must be set after user variables because of dependency.
+    # Modifications specific to this phase.  Must be set after user variables because of dependency.
     #------------------------------------------------------------------------------------------------------
 
     # WAVES - MODIFIED WITH WAVE CENTER CHANGES
@@ -171,7 +171,7 @@ def main(neutrinos):
 
     i = 1
     sphere_strength = config.core_strength
-    sphere_radius = particle_core_wavelength + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)     # Distance to wavelength. Standing wavelength decreases propotional to shell number
+    sphere_radius = particle_core_wavelength + (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength)     # Distance to wavelength. Standing wavelength decreases proportional to shell number
     sphere_midwave = particle_core_wavelength + ( ( (2 * particle_core_wavelength) - (2 * i * config.neutrino_wavelength) ) / 2)   # Midpoint of wavelength for forces
     sphere_name = "Standing Wave Core"
     harmonic_name = "Standing Wave Harmonic Core"
