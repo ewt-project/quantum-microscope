@@ -1,10 +1,11 @@
 # macOS files
 .DS_Store
 
-# Blender files unless it is the main Simulator.blend file
+# Blender files, unless it is the main Simulator.blend file
 *.blend
 *.blend1
-# The following can become large binary files, toggle commented line if you want to use it during development, revert before pull request
+# The following can become large binary files
+# Toggle commented line during development, revert before pull request
 # !Simulator.blend
 
 # Byte-compiled / optimized / DLL files

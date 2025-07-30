@@ -114,7 +114,7 @@ bpy.types.Scene.electrons_atoms = bpy.props.IntProperty(
 
 bpy.types.Scene.protons = bpy.props.IntProperty(
     name = "Protons",
-    default = 1, min = 0, max = 20,
+    default = 1, min = 1, max = 20,
     description = "The number of protons to simulate",
     update = proton_changed)
 
@@ -125,7 +125,7 @@ bpy.types.Scene.neutrons = bpy.props.IntProperty(
 
 bpy.types.Scene.hydrogen_atoms = bpy.props.IntProperty(
     name = "Hydrogen Atoms",
-    default = 10, min = 1, soft_max = 200,
+    default = 10, min = 1, max = 100,
     description = "The number of hydrogen atoms to simulate")
 
 bpy.types.Scene.show_electron_cloud = bpy.props.BoolProperty(

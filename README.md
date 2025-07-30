@@ -111,6 +111,7 @@ To commit any changes to the project, refer to the instructions page at: http://
 ## Authors
 
 * **Jeff Yee** - *Initial work*
+* **Rodrigo Griesi** - *Contributor*
 
 
 ## License
