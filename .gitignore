@@ -1,11 +1,12 @@
 # macOS files
 .DS_Store
 
-
-# Blender files unless it is the main Simulator.blend file
+# Blender files, unless it is the main Simulator.blend file
 *.blend
 *.blend1
-# !Simulator.blend  # These can become large binary files, toggle commented line if you want to use it during development, revert before pull request
+# The following can become large binary files
+# Toggle commented line during development, revert before pull request
+# !Simulator.blend
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -65,17 +66,17 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff:
+# Django stuff
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# Flask stuff
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy stuff
 .scrapy
 
 # Sphinx documentation
@@ -120,7 +121,10 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+# PyCharm IDE project files
+/.idea
+
+# Spyder IDE project settings
 .spyderproject
 .spyproject
 
@@ -137,4 +141,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-/.idea
+/sandbox

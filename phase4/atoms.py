@@ -188,7 +188,7 @@ def main(protons, neutrons, electrons, show_electron_cloud=False):
             # If displaying an electron cloud, disable electrons affecting themselves and set count higher to simulate the electron's probable positions.
             if config.show_electron_cloud:
                 self_effect = False
-                electron_count = config.num_frames / 10 * (int(orbital_name[:1])**2)        # Start with a smaller number of electrons near the core and increase with each shell for visibility
+                electron_count = int(config.num_frames / 10 * (int(orbital_name[:1])**2))   # Start with a smaller number of electrons near the core and increase with each shell for visibility
                 if config.protons == 1:                                                     # ...except hydrogen
                     electron_count = config.num_frames
             else:
